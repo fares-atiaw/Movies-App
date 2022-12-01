@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.movie.MovieFragment">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar_movie"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#E4E1E1"
+            app:title="Movie Details"
+            app:titleCentered="true"
+            app:titleTextColor="@color/black">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_movie"
+                style="@style/Widget.AppCompat.SearchView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                app:queryHint="Type at least one word"
+                android:shadowColor="@color/purple_200"
+                />
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_movie"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar_movie"
+            tools:listitem="@layout/item_movie" />
+
+    </RelativeLayout>
+
+</layout>

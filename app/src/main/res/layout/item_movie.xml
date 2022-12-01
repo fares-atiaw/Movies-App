@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.example.simplemoviesdetails.data.Movie" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?selectableItemBackground"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:focusable="true"
+        android:clickable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center"
+                android:imageUrl="@{data.Poster}"
+                android:src="@drawable/poster_placeholder">
+            </ImageView>
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:text="@{`▶`+data.title}"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                tools:text="hello how are you" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:actualText="@{data.year}"
+                android:textSize="14dp"
+                tools:text="hello how are you" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
