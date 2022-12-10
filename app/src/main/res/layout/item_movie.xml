@@ -26,13 +26,15 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="260dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 android:layout_gravity="center"
                 android:imageUrl="@{data.Poster}"
                 android:src="@drawable/poster_placeholder">
             </ImageView>
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
 
             <com.google.android.material.textview.MaterialTextView
                 style="@style/TextAppearance.AppCompat.Body1"
