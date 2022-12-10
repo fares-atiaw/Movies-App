@@ -16,8 +16,12 @@ class MoviesPaging(private val s: String, private val api: MovieAPIs) : PagingSo
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Movie> {
         val currentPage = params.key ?: 1
 
+        /**
+        Get the next page of data
+         **/
+
         return try{
-            val data = api.getMoviesBySearch(page = currentPage, search = s)
+            val data = api.getMoviesBySearch(search = s, page = currentPage)
             LoadResult.Page(
                 data = data.body()?.Search!!,
                 prevKey = if (currentPage==1) null else currentPage-1,

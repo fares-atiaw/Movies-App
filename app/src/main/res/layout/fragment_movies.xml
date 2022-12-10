@@ -18,7 +18,6 @@
             android:layout_height="50dp"
             android:background="#E4E1E1"
             app:title="Movie Details"
-            app:titleCentered="true"
             app:titleTextColor="@color/black">
 
             <androidx.appcompat.widget.SearchView

@@ -23,5 +23,9 @@ object AppModule {
             .build()
             .create(MovieAPIs::class.java)
 
+    // Repository
+    /*@Provides
+    @Singleton
+    fun provideRepository() : DefaultRepository = */
 
 }
