@@ -21,7 +21,7 @@ class MoviesPaging(private val s: String, private val api: MovieAPIs) : PagingSo
          **/
 
         return try{
-            val data = api.getMoviesBySearch(search = s, page = currentPage)
+            val data = api.getMoviesAndSeriesBySearch(search = s, page = currentPage)
             LoadResult.Page(
                 data = data.body()?.Search!!,
                 prevKey = if (currentPage==1) null else currentPage-1,

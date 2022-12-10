@@ -9,9 +9,25 @@ import retrofit2.http.Query
 interface MovieAPIs {
 
     @GET("/")
+    suspend fun getMoviesAndSeriesBySearch(
+        @Query("s") search: String,
+        @Query("page") page: Int = 1,
+        @Query("apikey") apikey: String = API_KEY,
+    ):Response<MovieResponse>
+
+    @GET("/")
     suspend fun getMoviesBySearch(
         @Query("s") search: String,
         @Query("page") page: Int = 1,
+        @Query("type") type: String = "movie",
+        @Query("apikey") apikey: String = API_KEY,
+    ):Response<MovieResponse>
+
+    @GET("/")
+    suspend fun getSeriesBySearch(
+        @Query("s") search: String,
+        @Query("page") page: Int = 1,
+        @Query("type") type: String = "series",
         @Query("apikey") apikey: String = API_KEY,
     ):Response<MovieResponse>
 
