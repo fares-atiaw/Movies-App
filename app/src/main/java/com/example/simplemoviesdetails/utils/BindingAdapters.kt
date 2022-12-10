@@ -20,7 +20,7 @@ fun bindImage(imageView : ImageView, imageUrl :String?)
             .apply(
                 RequestOptions()
                 .placeholder(R.drawable.loading_animation)
-                .error(R.drawable.ic_broken_image))
+                .error(R.drawable.ic_broken_image))      // "Poster": "N/A"
             .into(imageView)
     }
 }
