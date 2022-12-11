@@ -4,13 +4,14 @@ import androidx.lifecycle.*
 import androidx.paging.*
 import com.example.simplemoviesdetails.data.Movie
 import com.example.simplemoviesdetails.data.remote.MovieAPIs
+import com.example.simplemoviesdetails.data.repo.DefaultRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class MoviesViewModel
 @Inject
-constructor(private val moviesAPI : MovieAPIs) : ViewModel(){
+constructor(private val repo : DefaultRepository) : ViewModel(){
 
     /**
     When the user edit the text of the search bar, he updates 'query'
@@ -27,7 +28,7 @@ constructor(private val moviesAPI : MovieAPIs) : ViewModel(){
 
     val lista : LiveData<PagingData<Movie>> = query.switchMap {
         Pager(PagingConfig(pageSize = 18)) {
-            MoviesPaging(it, moviesAPI)
+            MoviesPaging(it, repo)
         }.liveData.cachedIn(viewModelScope)
     }
 }

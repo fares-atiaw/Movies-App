@@ -4,8 +4,9 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.simplemoviesdetails.data.Movie
 import com.example.simplemoviesdetails.data.remote.MovieAPIs
+import com.example.simplemoviesdetails.data.repo.DefaultRepository
 
-class MoviesPaging(private val s: String, private val api: MovieAPIs) : PagingSource<Int, Movie>() {
+class MoviesPaging(private val s: String, private val repo : DefaultRepository) : PagingSource<Int, Movie>() {
 
     override fun getRefreshKey(state: PagingState<Int, Movie>): Int? =
         state.anchorPosition?.let {
@@ -19,7 +20,7 @@ class MoviesPaging(private val s: String, private val api: MovieAPIs) : PagingSo
         /** Get the next page of data **/
 
         return try{
-            val data = api.getMoviesAndSeriesBySearch(search = s, page = currentPage)
+            val data = repo.getMoviesAndSeriesBySearch(search = s, page = currentPage)
             LoadResult.Page(
                 data = data.body()?.Search!!,
                 prevKey = if (currentPage==1) null else currentPage-1,

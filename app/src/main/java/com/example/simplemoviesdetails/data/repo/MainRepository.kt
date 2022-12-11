@@ -3,11 +3,11 @@ package com.example.simplemoviesdetails.data.repo
 import com.example.simplemoviesdetails.data.DefaultDataSource
 import com.example.simplemoviesdetails.data.DetailsResponse
 import com.example.simplemoviesdetails.data.MovieResponse
+import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.HiltAndroidApp
 import retrofit2.Response
 import javax.inject.Inject
 
-@HiltAndroidApp
 class MainRepository
 @Inject
 constructor (private val remoteSource : DefaultDataSource) : DefaultRepository {
