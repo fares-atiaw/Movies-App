@@ -1,6 +1,9 @@
 package com.example.simplemoviesdetails.di
 
+import com.example.simplemoviesdetails.data.DefaultDataSource
 import com.example.simplemoviesdetails.data.remote.MovieAPIs
+import com.example.simplemoviesdetails.data.remote.OMDBsource
+import com.example.simplemoviesdetails.data.repo.DefaultRepository
 import com.example.simplemoviesdetails.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -23,9 +26,5 @@ object AppModule {
             .build()
             .create(MovieAPIs::class.java)
 
-    // Repository
-    /*@Provides
-    @Singleton
-    fun provideRepository() : DefaultRepository = */
 
 }

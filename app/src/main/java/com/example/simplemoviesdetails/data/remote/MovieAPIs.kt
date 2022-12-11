@@ -1,5 +1,6 @@
 package com.example.simplemoviesdetails.data.remote
 
+import com.example.simplemoviesdetails.data.DetailsResponse
 import com.example.simplemoviesdetails.data.MovieResponse
 import com.example.simplemoviesdetails.utils.API_KEY
 import retrofit2.Response
@@ -58,10 +59,10 @@ interface MovieAPIs {
 
     // https://www.omdbapi.com/?i=tt10857160&apikey=e7a0b90a
     @GET("/")
-    suspend fun getMovieOrSeriesById(
+    suspend fun getMovieOrSeriesDetailsById(
         @Query("i") id: String,
         @Query("apikey") apikey: String = API_KEY,
-    ):Response<MovieResponse>
+    ):Response<DetailsResponse>
 
 
 }

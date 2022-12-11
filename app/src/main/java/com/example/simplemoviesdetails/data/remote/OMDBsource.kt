@@ -1,4 +1,4 @@
-package com.example.simplemoviesdetails.data.repo
+package com.example.simplemoviesdetails.data.remote
 
 import com.example.simplemoviesdetails.data.DefaultDataSource
 import com.example.simplemoviesdetails.data.DetailsResponse
@@ -8,20 +8,20 @@ import retrofit2.Response
 import javax.inject.Inject
 
 @HiltAndroidApp
-class MainRepository
+class OMDBsource
 @Inject
-constructor (private val remoteSource : DefaultDataSource) : DefaultRepository {
+constructor (private val moviesAPI : MovieAPIs) : DefaultDataSource {
 
     override suspend fun getMoviesAndSeriesBySearch(search: String, page: Int, apikey: String): Response<MovieResponse> =
-        remoteSource.getMoviesAndSeriesBySearch(search, page)
+        moviesAPI.getMoviesAndSeriesBySearch(search, page)
 
     override suspend fun getMoviesBySearch(search: String, type: String, page: Int, apikey: String): Response<MovieResponse> =
-        remoteSource.getMoviesBySearch(search)
+        moviesAPI.getMoviesBySearch(search, page)
 
     override suspend fun getSeriesBySearch(search: String, type: String, page: Int, apikey: String): Response<MovieResponse> =
-        remoteSource.getSeriesBySearch(search)
+        moviesAPI.getSeriesBySearch(search, page)
 
     override suspend fun getDetailsById(id: String, apikey: String): Response<DetailsResponse> =
-        remoteSource.getDetailsById(id)
+        moviesAPI.getMovieOrSeriesDetailsById(id)
 
 }
