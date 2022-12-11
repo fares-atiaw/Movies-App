@@ -1,5 +1,7 @@
 package com.example.simplemoviesdetails.data
 
+import com.example.simplemoviesdetails.data.model.DetailsResponse
+import com.example.simplemoviesdetails.data.model.MovieResponse
 import com.example.simplemoviesdetails.utils.API_KEY
 import retrofit2.Response
 

@@ -2,9 +2,8 @@ package com.example.simplemoviesdetails.ui.movie
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.simplemoviesdetails.data.Movie
-import com.example.simplemoviesdetails.data.remote.MovieAPIs
-import com.example.simplemoviesdetails.data.repo.DefaultRepository
+import com.example.simplemoviesdetails.data.DefaultRepository
+import com.example.simplemoviesdetails.data.model.Movie
 
 class MoviesPaging(private val s: String, private val repo : DefaultRepository) : PagingSource<Int, Movie>() {
 

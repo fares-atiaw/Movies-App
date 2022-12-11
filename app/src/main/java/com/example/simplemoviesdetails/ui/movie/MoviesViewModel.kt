@@ -2,9 +2,8 @@ package com.example.simplemoviesdetails.ui.movie
 
 import androidx.lifecycle.*
 import androidx.paging.*
-import com.example.simplemoviesdetails.data.Movie
-import com.example.simplemoviesdetails.data.remote.MovieAPIs
-import com.example.simplemoviesdetails.data.repo.DefaultRepository
+import com.example.simplemoviesdetails.data.DefaultRepository
+import com.example.simplemoviesdetails.data.model.Movie
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

@@ -1,7 +1,7 @@
 package com.example.simplemoviesdetails.data.remote
 
-import com.example.simplemoviesdetails.data.DetailsResponse
-import com.example.simplemoviesdetails.data.MovieResponse
+import com.example.simplemoviesdetails.data.model.DetailsResponse
+import com.example.simplemoviesdetails.data.model.MovieResponse
 import com.example.simplemoviesdetails.utils.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET

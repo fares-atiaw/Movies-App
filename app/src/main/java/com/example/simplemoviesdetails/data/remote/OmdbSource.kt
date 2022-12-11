@@ -1,9 +1,8 @@
 package com.example.simplemoviesdetails.data.remote
 
 import com.example.simplemoviesdetails.data.DefaultDataSource
-import com.example.simplemoviesdetails.data.DetailsResponse
-import com.example.simplemoviesdetails.data.MovieResponse
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.simplemoviesdetails.data.model.DetailsResponse
+import com.example.simplemoviesdetails.data.model.MovieResponse
 import retrofit2.Response
 import javax.inject.Inject
 

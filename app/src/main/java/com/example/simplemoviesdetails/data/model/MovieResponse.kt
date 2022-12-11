@@ -1,4 +1,4 @@
-package com.example.simplemoviesdetails.data
+package com.example.simplemoviesdetails.data.model
 
 data class MovieResponse(
     val Response: String, // True

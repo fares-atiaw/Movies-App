@@ -3,7 +3,7 @@ package com.example.simplemoviesdetails.di
 import com.example.simplemoviesdetails.data.DefaultDataSource
 import com.example.simplemoviesdetails.data.remote.MovieAPIs
 import com.example.simplemoviesdetails.data.remote.OmdbSource
-import com.example.simplemoviesdetails.data.repo.DefaultRepository
+import com.example.simplemoviesdetails.data.DefaultRepository
 import com.example.simplemoviesdetails.data.repo.MainRepository
 import com.example.simplemoviesdetails.utils.BASE_URL
 import dagger.Module
@@ -18,6 +18,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+    // API from omdbapi.com
     @Provides
     @Singleton
     fun provideRetrofit_omdbApi() : MovieAPIs =

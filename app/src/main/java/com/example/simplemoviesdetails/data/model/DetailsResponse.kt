@@ -1,4 +1,4 @@
-package com.example.simplemoviesdetails.data
+package com.example.simplemoviesdetails.data.model
 
 data class DetailsResponse(
     val Actors: String, // Tatiana Maslany, Ginger Gonzaga, Malia Arrayah
