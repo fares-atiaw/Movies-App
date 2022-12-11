@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.simplemoviesdetails.R
 import com.example.simplemoviesdetails.databinding.FragmentMoviesBinding
 import com.example.simplemoviesdetails.utils.hideSoftInput
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MoviesFragment : Fragment(R.layout.fragment_movies) {
@@ -31,7 +31,7 @@ class MoviesFragment : Fragment(R.layout.fragment_movies) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        setRecyclerView()
+        setupRecyclerView()
 
         binding.searchMovie.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -53,7 +53,7 @@ class MoviesFragment : Fragment(R.layout.fragment_movies) {
 
     }
 
-    private fun setRecyclerView() {
+    private fun setupRecyclerView() {
         binding.recyclerMovie.apply {
             adapter = movieAdapter
             layoutManager = GridLayoutManager(requireContext(), 2)

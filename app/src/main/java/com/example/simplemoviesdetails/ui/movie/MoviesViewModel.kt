@@ -21,12 +21,13 @@ constructor(private val moviesAPI : MovieAPIs) : ViewModel(){
     }
 
     /**
-     So, when 'query' change, the 'query.switchMap()' triggered and get the new list(page++).
+     So, when 'query' change, the 'query.switchMap()' triggered and get a new paginated list.
      Then returns back as lifeData to update 'lista'.
      **/
 
     val lista : LiveData<PagingData<Movie>> = query.switchMap {
-        Pager(PagingConfig(pageSize = 18)){ MoviesPaging(it, moviesAPI) }
-            .liveData.cachedIn(viewModelScope)
+        Pager(PagingConfig(pageSize = 18)) {
+            MoviesPaging(it, moviesAPI)
+        }.liveData.cachedIn(viewModelScope)
     }
 }

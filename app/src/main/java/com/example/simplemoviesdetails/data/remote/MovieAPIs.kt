@@ -56,12 +56,12 @@ interface MovieAPIs {
         @Query("apikey") apikey: String = API_KEY,
     ):Response<MovieResponse>
 
-
+    // https://www.omdbapi.com/?i=tt10857160&apikey=e7a0b90a
     @GET("/")
-    suspend fun getMoviesById(
-        @Query("i") search: String,
-        @Query("page") page: Int = 1,
+    suspend fun getMovieOrSeriesById(
+        @Query("i") id: String,
         @Query("apikey") apikey: String = API_KEY,
     ):Response<MovieResponse>
+
 
 }

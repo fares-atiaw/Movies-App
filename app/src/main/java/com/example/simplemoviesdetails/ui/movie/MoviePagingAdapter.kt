@@ -10,8 +10,8 @@ import com.example.simplemoviesdetails.databinding.ItemMovieBinding
 
 class MoviePagingAdapter : PagingDataAdapter<Movie, MoviePagingAdapter.MovieItemViewHolder>(MovieDiffCallback()) {
 
-    private var clickListener: ((data :Movie) -> Unit)? = null
-    fun onClick(listener: (data :Movie) -> Unit) {
+    private var clickListener: ((id :String) -> Unit)? = null
+    fun onClick(listener: (id :String) -> Unit) {
         clickListener = listener
     }
 
@@ -26,11 +26,11 @@ class MoviePagingAdapter : PagingDataAdapter<Movie, MoviePagingAdapter.MovieItem
     class MovieItemViewHolder private constructor(private val binding: ItemMovieBinding)
         : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: Movie, clickListener: ((data :Movie) -> Unit)?) {
+        fun bind(data: Movie, clickListener: ((id :String) -> Unit)?) {
             binding.data = data
             binding.root.setOnClickListener {
                 clickListener?.let {
-                    it(data)
+                    it(data.imdbID)
                 }
             }
             binding.executePendingBindings()
