@@ -54,16 +54,15 @@ class MoviesFragment : Fragment(R.layout.fragment_movies) {
 
     private fun setupRecyclerViewAndAdapter()
     {
-        binding.recyclerMovie.apply {
-            adapter = movieAdapter
-            layoutManager = GridLayoutManager(requireContext(), 2)
-        }
-
         movieAdapter.onClick {
             val bundle = Bundle().apply { putString("id", it) }
             findNavController().navigate(R.id.action_movieFragment_to_detailsFragment, bundle)
         }
-    }
 
+        binding.recyclerMovie.apply {
+            adapter = movieAdapter
+            layoutManager = GridLayoutManager(requireContext(), 2)
+        }
+    }
 }
 

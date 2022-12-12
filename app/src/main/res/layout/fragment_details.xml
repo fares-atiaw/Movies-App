@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="movieDetails"
+            name="details"
             type="com.example.simplemoviesdetails.data.model.DetailsResponse" />
     </data>
 
@@ -17,7 +17,8 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/main_fragment_appbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:backgroundTint="#D8D8D8">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
@@ -32,9 +33,9 @@
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="400dp"
+                        android:layout_height="600dp"
                         android:scaleType="centerCrop"
-                        android:imageUrl="@{movieDetails.poster}" />
+                        android:imageUrl="@{details.poster}" />
 
                     <ImageView
                         android:id="@+id/back_press"
@@ -51,8 +52,8 @@
                         android:layout_toEndOf="@+id/back_press"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@{movieDetails.title}"
-                        tools:text="movieDetails.title"
+                        android:text="@{details.title}"
+                        tools:text="details.title"
                         android:textColor="@color/white" />
                 </RelativeLayout>
 
@@ -88,8 +89,9 @@
                         style="@style/TextAppearance.AppCompat.Title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{movieDetails.title}"
+                        android:text="@{details.title}"
                         android:textSize="16sp"
+                        android:textColor="#6A676A"
                         tools:text="Movie name" />
                 </LinearLayout>
 
@@ -112,8 +114,9 @@
                         style="@style/TextAppearance.AppCompat.Title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{movieDetails.actors}"
+                        android:text="@{details.actors}"
                         android:textSize="16sp"
+                        android:textColor="#6A676A"
                         tools:text="Movie name" />
                 </LinearLayout>
 
@@ -136,7 +139,8 @@
                         style="@style/TextAppearance.AppCompat.Title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{movieDetails.writer}"
+                        android:text="@{details.writer}"
+                        android:textColor="#6A676A"
                         android:textSize="16sp" />
                 </LinearLayout>
 
@@ -159,7 +163,8 @@
                         style="@style/TextAppearance.AppCompat.Title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{movieDetails.imdbRating}"
+                        android:text="@{details.imdbRating}"
+                        android:textColor="#6A676A"
                         android:textSize="16sp" />
                 </LinearLayout>
 
@@ -182,7 +187,8 @@
                         style="@style/TextAppearance.AppCompat.Title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{movieDetails.imdbVotes}"
+                        android:text="@{details.imdbVotes}"
+                        android:textColor="#6A676A"
                         android:textSize="16sp" />
                 </LinearLayout>
 
@@ -205,7 +211,8 @@
                         style="@style/TextAppearance.AppCompat.Title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{movieDetails.released}"
+                        android:text="@{details.released}"
+                        android:textColor="#6A676A"
                         android:textSize="16sp" />
                 </LinearLayout>
 
@@ -213,13 +220,13 @@
 
         </androidx.core.widget.NestedScrollView>
 
-
         <ProgressBar
             android:id="@+id/details_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:visibility="gone"
+            android:progressDrawable="@drawable/loading_animation"
             />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
