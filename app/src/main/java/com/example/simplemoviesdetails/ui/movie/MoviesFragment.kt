@@ -1,6 +1,5 @@
 package com.example.simplemoviesdetails.ui.movie
 
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

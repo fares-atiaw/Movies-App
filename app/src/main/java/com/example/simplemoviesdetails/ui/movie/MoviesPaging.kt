@@ -19,11 +19,11 @@ class MoviesPaging(private val s: String, private val repo : DefaultRepository) 
         /** Get the next page of data **/
 
         return try{
-            val data = repo.getMoviesAndSeriesBySearch(search = s, page = currentPage)
+            val data = repo.getMoviesAndSeriesBySearch(search = s, page = currentPage).data
             LoadResult.Page(
-                data = data.body()?.Search!!,
+                data = data?.Search!!,
                 prevKey = if (currentPage==1) null else currentPage-1,
-                nextKey = if (data.body()?.Search?.isEmpty()!!) null else currentPage+1
+                nextKey = if (data.Search.isEmpty()) null else currentPage+1
             )
         } catch (e: Exception){
             LoadResult.Error(e)
