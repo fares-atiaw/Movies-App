@@ -25,11 +25,31 @@ constructor (private val remoteSource : DefaultDataSource) : DefaultRepository {
         }
     }
 
-    override suspend fun getMoviesBySearch(search: String, type: String, page: Int, apikey: String): Response<MovieResponse> =
-        remoteSource.getMoviesBySearch(search)
+    override suspend fun getMoviesBySearch(search: String, type: String, page: Int, apikey: String): Resource<MovieResponse> {
+        val response = remoteSource.getMoviesBySearch(search)
+        return try {
+            if (response.isSuccessful)
+                Resource.Success(response.body())
+            else
+                Resource.Error("No data", response.body())
 
-    override suspend fun getSeriesBySearch(search: String, type: String, page: Int, apikey: String): Response<MovieResponse> =
-        remoteSource.getSeriesBySearch(search)
+        } catch(e: Exception) {
+            Resource.Error("An error occurred \n $e", response.body())
+        }
+    }
+
+    override suspend fun getSeriesBySearch(search: String, type: String, page: Int, apikey: String): Resource<MovieResponse> {
+        val response = remoteSource.getSeriesBySearch(search)
+        return try {
+            if (response.isSuccessful)
+                Resource.Success(response.body())
+            else
+                Resource.Error("No data", response.body())
+
+        } catch(e: Exception) {
+            Resource.Error("An error occurred \n $e", response.body())
+        }
+    }
 
     override suspend fun getDetailsById(id: String, apikey: String): Resource<DetailsResponse> {
         val response = remoteSource.getDetailsById(id)

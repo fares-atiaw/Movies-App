@@ -12,10 +12,10 @@ interface DefaultRepository {
     : Resource<MovieResponse>
 
     suspend fun getMoviesBySearch(search: String, type: String = "movie", page: Int = 1, apikey: String = API_KEY)
-    : Response<MovieResponse>
+    : Resource<MovieResponse>
 
     suspend fun getSeriesBySearch(search: String, type: String = "series", page: Int = 1, apikey: String = API_KEY)
-    : Response<MovieResponse>
+    : Resource<MovieResponse>
 
     suspend fun getDetailsById(id: String, apikey: String = API_KEY)
     : Resource<DetailsResponse>
