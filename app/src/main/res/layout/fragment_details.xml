@@ -226,6 +226,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:visibility="gone"
+            android:background="@android:color/transparent"
             android:progressDrawable="@drawable/loading_animation"
             />
 
