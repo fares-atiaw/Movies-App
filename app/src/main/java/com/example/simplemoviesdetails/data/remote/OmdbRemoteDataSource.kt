@@ -6,8 +6,7 @@ import com.example.simplemoviesdetails.data.model.MovieResponse
 import retrofit2.Response
 import javax.inject.Inject
 
-
-class OmdbSource
+class OmdbRemoteDataSource
 @Inject
 constructor (private val moviesAPI : MovieAPIs) : DefaultDataSource {
 

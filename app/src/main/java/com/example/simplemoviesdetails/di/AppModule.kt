@@ -2,7 +2,7 @@ package com.example.simplemoviesdetails.di
 
 import com.example.simplemoviesdetails.data.DefaultDataSource
 import com.example.simplemoviesdetails.data.remote.MovieAPIs
-import com.example.simplemoviesdetails.data.remote.OmdbSource
+import com.example.simplemoviesdetails.data.remote.OmdbRemoteDataSource
 import com.example.simplemoviesdetails.data.DefaultRepository
 import com.example.simplemoviesdetails.data.repo.MainRepository
 import com.example.simplemoviesdetails.utils.BASE_URL
@@ -32,7 +32,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideRemoteDataSource(api : MovieAPIs) : DefaultDataSource =
-        OmdbSource(api)
+        OmdbRemoteDataSource(api)
 
 
     // Repository

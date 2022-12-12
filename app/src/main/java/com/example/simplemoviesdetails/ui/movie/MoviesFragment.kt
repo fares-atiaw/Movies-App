@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.simplemoviesdetails.R
 import com.example.simplemoviesdetails.databinding.FragmentMoviesBinding
+import com.example.simplemoviesdetails.ui.MoviesViewModel
 import com.example.simplemoviesdetails.utils.hideSoftInput
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,13 +31,12 @@ class MoviesFragment : Fragment(R.layout.fragment_movies) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         setupRecyclerView()
-//        movieAdapter.onClick {
-//            val bundle = Bundle().apply {
-//                putInt("id", it)
-//            }
-//
-//            findNavController().navigate(R.id.action_movieFragment_to_detailsFragment,)
-//        }
+        movieAdapter.onClick {
+            val bundle = Bundle().apply {
+                putString("id", it)
+            }
+            findNavController().navigate(R.id.action_movieFragment_to_detailsFragment, bundle)
+        }
 
         binding.searchMovie.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {

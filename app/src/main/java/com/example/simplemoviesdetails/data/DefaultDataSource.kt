@@ -8,15 +8,15 @@ import retrofit2.Response
 interface DefaultDataSource {
 
     suspend fun getMoviesAndSeriesBySearch(search: String, page: Int = 1, apikey: String = API_KEY)
-            : Response<MovieResponse>
+    : Response<MovieResponse>
 
     suspend fun getMoviesBySearch(search: String, type: String = "movie", page: Int = 1, apikey: String = API_KEY)
-            : Response<MovieResponse>
+    : Response<MovieResponse>
 
     suspend fun getSeriesBySearch(search: String, type: String = "series", page: Int = 1, apikey: String = API_KEY)
-            : Response<MovieResponse>
+    : Response<MovieResponse>
 
     suspend fun getDetailsById(id: String, apikey: String = API_KEY)
-            : Response<DetailsResponse>
+    : Response<DetailsResponse>
 
 }

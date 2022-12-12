@@ -1,9 +1,10 @@
-package com.example.simplemoviesdetails.ui.movie
+package com.example.simplemoviesdetails.ui
 
 import androidx.lifecycle.*
 import androidx.paging.*
 import com.example.simplemoviesdetails.data.DefaultRepository
 import com.example.simplemoviesdetails.data.model.Movie
+import com.example.simplemoviesdetails.ui.movie.MoviesPaging
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -30,6 +31,7 @@ constructor(private val repo : DefaultRepository) : ViewModel(){
             MoviesPaging(it, repo)
         }.liveData.cachedIn(viewModelScope)
     }
+
 
 
 
