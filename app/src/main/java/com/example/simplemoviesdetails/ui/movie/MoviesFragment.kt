@@ -30,13 +30,7 @@ class MoviesFragment : Fragment(R.layout.fragment_movies) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        setupRecyclerView()
-        movieAdapter.onClick {
-            val bundle = Bundle().apply {
-                putString("id", it)
-            }
-            findNavController().navigate(R.id.action_movieFragment_to_detailsFragment, bundle)
-        }
+        setupRecyclerViewAndAdapter()
 
         binding.searchMovie.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -58,10 +52,16 @@ class MoviesFragment : Fragment(R.layout.fragment_movies) {
 
     }
 
-    private fun setupRecyclerView() {
+    private fun setupRecyclerViewAndAdapter()
+    {
         binding.recyclerMovie.apply {
             adapter = movieAdapter
             layoutManager = GridLayoutManager(requireContext(), 2)
+        }
+
+        movieAdapter.onClick {
+            val bundle = Bundle().apply { putString("id", it) }
+            findNavController().navigate(R.id.action_movieFragment_to_detailsFragment, bundle)
         }
     }
 

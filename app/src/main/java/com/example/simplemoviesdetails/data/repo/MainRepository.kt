@@ -57,7 +57,7 @@ constructor (private val remoteSource : DefaultDataSource) : DefaultRepository {
             if (response.isSuccessful)
                 Resource.Success(response.body())
              else
-                Resource.Error("No data", response.body())
+                Resource.Error("Data not found", response.body())
 
         } catch(e: Exception) {
              Resource.Error("An error occurred \n $e", response.body())
